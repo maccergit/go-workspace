@@ -33,3 +33,16 @@ This project uses a **Go Workspace**, which is a feature introduced in Go 1.18 t
     go run ./greetings <your-name>
     # Example: go run ./greetings John
     ```
+### License
+This entire project is based upon the problems, discussions, solutions, etc... presented by the team at https://projecteuler.net.  Their site uses the CC-BY-NC-SA 4.0 license, which requires derivative works to provide attribution to them and to use the same license - so that is the license for this repo as well.  The license materials for this repo were provided by https://github.com/santisoler/cc-licenses:
+
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
