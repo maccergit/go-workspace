@@ -34,7 +34,7 @@ This project uses a **Go Workspace**, which is a feature introduced in Go 1.18 t
     # Example: go run ./greetings John
     ```
 ### License
-This entire project is based upon the problems, discussions, solutions, etc... presented by the team at https://projecteuler.net.  Their site uses the CC-BY-NC-SA 4.0 license, which requires derivative works to provide attribution to them and to use the same license - so that is the license for this repo as well.  The license materials for this repo were provided by https://github.com/santisoler/cc-licenses:
+The items here are mine, created with the help of the free Gemini AI.  The license materials for this repo were provided by https://github.com/santisoler/cc-licenses:
 
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
