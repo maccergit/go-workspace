@@ -17,12 +17,17 @@ func main() {
 		MockEmail{Address: "hr@example.com"},
 		MockSMS{Number: "555-0101"},
 		MockSMS{Number: "555-0999"},
+		ActualEmail{SMTPServer: "smtp.gmail.com"},
+		Email2SMS{
+			ActualEmail: ActualEmail{SMTPServer: "smtp.provider.com"},
+			Gateway:     "vtext.com",
+		},
 	}
 
 	fmt.Printf("--- Broadcasting: %s ---\n", message)
 
-	for _, r := range recipients {
-		if err := r.Send(message); err != nil {
+	for _, recipent := range recipients {
+		if err := recipent.Send(message); err != nil {
 			fmt.Printf("Error sending message: %v\n", err)
 		}
 	}
