@@ -17,10 +17,16 @@ func main() {
 		MockEmail{Address: "hr@example.com"},
 		MockSMS{Number: "555-0101"},
 		MockSMS{Number: "555-0999"},
-		ActualEmail{SMTPServer: "smtp.gmail.com"},
+		ActualEmail{Target: "mcalisterjohnathon@gmail.com"},
+		ActualEmail{Target: "john.mcalister@ricoh-usa.com"},
+		ActualEmail{
+			Target:       "example@example.com",
+			SmtpOverride: "kendrick71@ethereal.email@smtp.ethereal.email",
+			SmtpPass:     "P8fFs2Xy2ChMfGJ8Zs",
+		},
 		Email2SMS{
-			ActualEmail: ActualEmail{SMTPServer: "smtp.provider.com"},
-			Gateway:     "vtext.com",
+			ActualEmail: ActualEmail{Target: "4064103041"},
+			Gateway:     "smtp.ethereal.mail",
 		},
 	}
 
