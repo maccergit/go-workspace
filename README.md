@@ -27,6 +27,10 @@ The example shown here is an initial module developed with the AI - a more advan
     go run ./greetings <your-name>
     # Example: go run ./greetings John
     ```
+
+## Wiki
+This repo includes a wiki site - check out the [wiki](https://github.com/maccergit/go-workspace/wiki) for tutorial style documentation on my exploration into Go.
+
 ### License
 The items here are mine, created with the help of the free Gemini AI.  The license materials for this repo were provided by https://github.com/santisoler/cc-licenses:
 
