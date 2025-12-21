@@ -24,10 +24,6 @@ func main() {
 			SmtpOverride: "kendrick71@ethereal.email@smtp.ethereal.email",
 			SmtpPass:     "P8fFs2Xy2ChMfGJ8Zs",
 		},
-		Email2SMS{
-			ActualEmail: ActualEmail{Target: "4064103041"},
-			Gateway:     "smtp.ethereal.mail",
-		},
 	}
 
 	fmt.Printf("--- Broadcasting: %s ---\n", message)

@@ -8,7 +8,6 @@ import (
 )
 
 var _ Notifier = (*ActualEmail)(nil)
-var _ Notifier = (*Email2SMS)(nil)
 
 type ActualEmail struct {
 	SmtpOverride string // format: user@host:port (or user@domain@host:port)
@@ -39,13 +38,8 @@ func parseSmtpConfig(smtpConfig string, smtpPass string) (user string, hostConfi
 	return smtpConfig[:lastAtIndex], smtpConfig[lastAtIndex+1:], smtpPass, nil
 }
 
-// Send satisfies the Notifier interface using the internal Target
+// Send satisfies the Notifier interface
 func (e ActualEmail) Send(msg string) error {
-	return e.SendTo(e.Target, msg)
-}
-
-// SendTo allows sending to a specific address using the struct's SMTP config
-func (e ActualEmail) SendTo(target string, msg string) error {
 	user, host, pass, err := parseSmtpConfig(e.SmtpOverride, e.SmtpPass)
 	if err != nil {
 		return err
@@ -60,26 +54,13 @@ func (e ActualEmail) SendTo(target string, msg string) error {
 
 	auth := smtp.PlainAuth("", user, pass, server)
 	addr := fmt.Sprintf("%s:%s", server, port)
-	header := fmt.Sprintf("From: %s\r\nTo: %s\r\nSubject: Go Messenger Alert\r\n\r\n", user, target)
+	header := fmt.Sprintf("From: %s\r\nTo: %s\r\nSubject: Go Messenger Alert\r\n\r\n", user, e.Target)
 	body := []byte(header + msg)
 
-	if err := smtp.SendMail(addr, auth, user, []string{target}, body); err != nil {
-		return fmt.Errorf("delivery failed to %s: %w", target, err)
+	if err := smtp.SendMail(addr, auth, user, []string{e.Target}, body); err != nil {
+		return fmt.Errorf("delivery failed to %s: %w", e.Target, err)
 	}
 
-	fmt.Printf("[EMAIL] Successfully sent to %s\n", target)
+	fmt.Printf("[EMAIL] Successfully sent to %s\n", e.Target)
 	return nil
-}
-
-type Email2SMS struct {
-	ActualEmail // no field name, just type - signatures are promoted
-	Gateway     string
-}
-
-func (s Email2SMS) Send(msg string) error {
-	// Construct the gateway address locally
-	fullTarget := fmt.Sprintf("%s@%s", s.ActualEmail.Target, s.Gateway)
-
-	// Delegate the work to the embedded SendTo method
-	return s.ActualEmail.SendTo(fullTarget, msg)
 }
