@@ -24,6 +24,8 @@ func main() {
 			SmtpOverride: "kendrick71@ethereal.email@smtp.ethereal.email",
 			SmtpPass:     "P8fFs2Xy2ChMfGJ8Zs",
 		},
+		WebNotifier{URL: "https://webhook.site/bf0b1f13-807e-4fe6-9c9f-8e24c0673af6"},
+		WebNotifier{URL: "https://ntfy.sh/johnmc_go_test_topic"},
 	}
 
 	fmt.Printf("--- Broadcasting: %s ---\n", message)
